@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from 'react';
-import { GoogleMap, useJsApiLoader, Polyline, Marker, InfoWindow, HeatmapLayer, TrafficLayer, Polygon } from '@react-google-maps/api';
+import React, { useState, useCallback, useEffect } from 'react';
+import { GoogleMap, useJsApiLoader, Polyline, Marker, InfoWindow, HeatmapLayer, TrafficLayer, Polygon, DirectionsRenderer } from '@react-google-maps/api';
 import { Layers, AlertTriangle, Search } from 'lucide-react';
 
 // Required Google Maps API Libraries
@@ -128,6 +128,41 @@ export const NagpurMap: React.FC<Props> = ({
   const recRoute = routeData?.recommended_route;
   const altRoutes = routeData?.alternative_routes || [];
 
+  const [directionsResult, setDirectionsResult] = useState<google.maps.DirectionsResult | null>(null);
+
+  // Fetch real Google Maps driving route snapped directly to real roads & curves
+  useEffect(() => {
+    if (isLoaded && recRoute && recRoute.nodes_info && recRoute.nodes_info.length >= 2) {
+      const originNode = recRoute.nodes_info[0];
+      const destNode = recRoute.nodes_info[recRoute.nodes_info.length - 1];
+      const waypoints = recRoute.nodes_info.slice(1, -1).map((n: any) => ({
+        location: { lat: n.lat, lng: n.lng },
+        stopover: false
+      }));
+
+      if (typeof google !== 'undefined' && google.maps && google.maps.DirectionsService) {
+        const ds = new google.maps.DirectionsService();
+        ds.route(
+          {
+            origin: { lat: originNode.lat, lng: originNode.lng },
+            destination: { lat: destNode.lat, lng: destNode.lng },
+            waypoints: waypoints,
+            travelMode: google.maps.TravelMode.DRIVING
+          },
+          (result, status) => {
+            if (status === google.maps.DirectionsStatus.OK && result) {
+              setDirectionsResult(result);
+            } else {
+              setDirectionsResult(null);
+            }
+          }
+        );
+      }
+    } else {
+      setDirectionsResult(null);
+    }
+  }, [isLoaded, recRoute]);
+
   // Auto-fit bounds when a recommended route is calculated
   React.useEffect(() => {
     if (map && recRoute && recRoute.polyline && recRoute.polyline.length > 0) {
@@ -136,7 +171,7 @@ export const NagpurMap: React.FC<Props> = ({
         recRoute.polyline.forEach(([lat, lng]: [number, number]) => {
           bounds.extend(new google.maps.LatLng(lat, lng));
         });
-        map.fitBounds(bounds, { top: 80, bottom: 80, left: 80, right: 80 });
+        map.fitBounds(bounds, { top: 60, bottom: 60, left: 60, right: 60 });
       }
     }
   }, [map, recRoute]);
@@ -369,28 +404,43 @@ export const NagpurMap: React.FC<Props> = ({
           );
         })}
 
-        {/* Recommended A* Route Overlay (Glowing Cyan Line) */}
-        {layers.showRecommendedRoutes && recRoute?.polyline && (
-          <Polyline
-            path={recRoute.polyline.map(([lat, lng]: [number, number]) => ({ lat, lng }))}
+        {/* Real Google Maps Driving Route (Snapped directly to real roads & curves) */}
+        {directionsResult ? (
+          <DirectionsRenderer
+            directions={directionsResult}
             options={{
-              strokeColor: '#06b6d4',
-              strokeWeight: 8,
-              strokeOpacity: 0.98,
-              icons: [{
-                icon: {
-                  path: typeof google !== 'undefined' && google.maps ? google.maps.SymbolPath.FORWARD_CLOSED_ARROW : 1,
-                  scale: 3.5,
-                  strokeColor: '#0891b2',
-                  fillColor: '#22d3ee',
-                  fillOpacity: 1
-                },
-                offset: '20%',
-                repeat: '80px'
-              }],
-              zIndex: 100
+              suppressMarkers: true,
+              polylineOptions: {
+                strokeColor: '#06b6d4',
+                strokeWeight: 7,
+                strokeOpacity: 0.98,
+                zIndex: 120
+              }
             }}
           />
+        ) : (
+          layers.showRecommendedRoutes && recRoute?.polyline && (
+            <Polyline
+              path={recRoute.polyline.map(([lat, lng]: [number, number]) => ({ lat, lng }))}
+              options={{
+                strokeColor: '#06b6d4',
+                strokeWeight: 8,
+                strokeOpacity: 0.98,
+                icons: [{
+                  icon: {
+                    path: typeof google !== 'undefined' && google.maps ? google.maps.SymbolPath.FORWARD_CLOSED_ARROW : 1,
+                    scale: 3.5,
+                    strokeColor: '#0891b2',
+                    fillColor: '#22d3ee',
+                    fillOpacity: 1
+                  },
+                  offset: '20%',
+                  repeat: '80px'
+                }],
+                zIndex: 100
+              }}
+            />
+          )
         )}
 
         {/* Start Pin Marker (Green) */}
