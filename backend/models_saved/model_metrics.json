@@ -1,0 +1,47 @@
+{
+  "selected_model": "XGBoost",
+  "best_metrics": {
+    "mae": 0.001,
+    "rmse": 0.0026,
+    "r2": 0.9994
+  },
+  "all_models_comparison": {
+    "Linear Regression": {
+      "mae": 0.007,
+      "rmse": 0.0107,
+      "r2": 0.9893
+    },
+    "Random Forest": {
+      "mae": 0.0003,
+      "rmse": 0.0018,
+      "r2": 0.9997
+    },
+    "XGBoost": {
+      "mae": 0.001,
+      "rmse": 0.0026,
+      "r2": 0.9994
+    }
+  },
+  "feature_importances": {
+    "incident_severity": 0.4342,
+    "is_peak_hour": 0.2803,
+    "has_incident": 0.1613,
+    "vc_ratio": 0.0728,
+    "volume_pcu_hr": 0.0145,
+    "temperature_c": 0.014,
+    "rainfall_mm": 0.0105,
+    "rolling_avg_speed_3h": 0.0039,
+    "hour": 0.0033,
+    "lag_speed_1h": 0.0023,
+    "speed_limit_kmh": 0.0017,
+    "capacity_pcu_hr": 0.0006,
+    "day_of_week": 0.0002,
+    "rolling_avg_volume_3h": 0.0002,
+    "is_weekend": 0.0001,
+    "lag_volume_1h": 0.0001,
+    "visibility_km": 0.0
+  },
+  "training_samples": 18144,
+  "test_samples": 3888,
+  "last_trained_at": "2026-08-17 19:57:24"
+}

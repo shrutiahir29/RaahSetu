@@ -1,0 +1,419 @@
+{
+  "nodes": [
+    { "id": "node_sitabuldi", "name": "Sitabuldi Interchange", "lat": 21.1458, "lng": 79.0882, "type": "major_junction" },
+    { "id": "node_zero_mile", "name": "Zero Mile Freedom Park", "lat": 21.1497, "lng": 79.0821, "type": "major_junction" },
+    { "id": "node_sadar", "name": "Sadar Residency Road Sq", "lat": 21.1610, "lng": 79.0845, "type": "junction" },
+    { "id": "node_mankapur", "name": "Mankapur Square", "lat": 21.1890, "lng": 79.0720, "type": "junction" },
+    { "id": "node_automotive", "name": "Automotive Square (Kamptee Rd)", "lat": 21.1920, "lng": 79.1120, "type": "major_junction" },
+    { "id": "node_central_ave", "name": "Central Avenue (Cotton Market)", "lat": 21.1480, "lng": 79.1150, "type": "junction" },
+    { "id": "node_hb_town", "name": "HB Town Square (Bhandara Rd)", "lat": 21.1490, "lng": 79.1320, "type": "junction" },
+    { "id": "node_medical_sq", "name": "Medical College Square", "lat": 21.1275, "lng": 79.0920, "type": "major_junction" },
+    { "id": "node_ramdaspeth", "name": "Ramdaspeth Sq", "lat": 21.1350, "lng": 79.0740, "type": "junction" },
+    { "id": "node_rahate_colony", "name": "Rahate Colony Square", "lat": 21.1300, "lng": 79.0780, "type": "junction" },
+    { "id": "node_ajni_sq", "name": "Ajni Square (Wardha Rd)", "lat": 21.1220, "lng": 79.0780, "type": "major_junction" },
+    { "id": "node_chhatrapati", "name": "Chhatrapati Square (Wardha Rd)", "lat": 21.1080, "lng": 79.0650, "type": "major_junction" },
+    { "id": "node_airport_sq", "name": "Airport Square (Pride Hotel Sq)", "lat": 21.0950, "lng": 79.0550, "type": "major_junction" },
+    { "id": "node_airport_term", "name": "Nagpur Airport Terminal", "lat": 21.0922, "lng": 79.0472, "type": "landmark" },
+    { "id": "node_khapri", "name": "Khapri Metro Station Sq", "lat": 21.0650, "lng": 79.0400, "type": "junction" },
+    { "id": "node_mihan", "name": "MIHAN IT & SEZ Hub", "lat": 21.0500, "lng": 79.0300, "type": "destination" },
+    { "id": "node_dharampeth", "name": "Dharampeth Zenda Chowk", "lat": 21.1415, "lng": 79.0620, "type": "junction" },
+    { "id": "node_law_college", "name": "Law College Square", "lat": 21.1480, "lng": 79.0610, "type": "major_junction" },
+    { "id": "node_shankarnagar", "name": "Shankarnagar Square", "lat": 21.1380, "lng": 79.0680, "type": "junction" },
+    { "id": "node_it_park", "name": "Nagpur IT Park (Parsodi)", "lat": 21.1235, "lng": 79.0515, "type": "landmark" },
+    { "id": "node_hingna_naka", "name": "Hingna Naka / MIDC", "lat": 21.1150, "lng": 79.0050, "type": "junction" }
+  ],
+  "segments": [
+    {
+      "id": "seg_sitabuldi_rahate",
+      "name": "Wardha Road (Sitabuldi - Rahate Colony)",
+      "corridor": "Wardha Road",
+      "start_node": "node_sitabuldi",
+      "end_node": "node_rahate_colony",
+      "distance_km": 1.9,
+      "speed_limit_kmh": 60,
+      "capacity_pcu_hr": 3200,
+      "geometry_points": [
+        [21.1458, 79.0882],
+        [21.1432, 79.0858],
+        [21.1395, 79.0832],
+        [21.1350, 79.0805],
+        [21.1300, 79.0780]
+      ]
+    },
+    {
+      "id": "seg_rahate_ajni",
+      "name": "Wardha Road (Rahate Colony - Ajni Sq)",
+      "corridor": "Wardha Road",
+      "start_node": "node_rahate_colony",
+      "end_node": "node_ajni_sq",
+      "distance_km": 0.9,
+      "speed_limit_kmh": 60,
+      "capacity_pcu_hr": 3200,
+      "geometry_points": [
+        [21.1300, 79.0780],
+        [21.1275, 79.0780],
+        [21.1250, 79.0780],
+        [21.1220, 79.0780]
+      ]
+    },
+    {
+      "id": "seg_ajni_chhatrapati",
+      "name": "Wardha Road Flyover (Ajni Sq - Chhatrapati Sq)",
+      "corridor": "Wardha Road",
+      "start_node": "node_ajni_sq",
+      "end_node": "node_chhatrapati",
+      "distance_km": 2.1,
+      "speed_limit_kmh": 60,
+      "capacity_pcu_hr": 3500,
+      "geometry_points": [
+        [21.1220, 79.0780],
+        [21.1190, 79.0755],
+        [21.1150, 79.0720],
+        [21.1112, 79.0682],
+        [21.1080, 79.0650]
+      ]
+    },
+    {
+      "id": "seg_chhatrapati_airport",
+      "name": "Wardha Road Elevated Corridor (Chhatrapati Sq - Airport Sq)",
+      "corridor": "Wardha Road",
+      "start_node": "node_chhatrapati",
+      "end_node": "node_airport_sq",
+      "distance_km": 1.8,
+      "speed_limit_kmh": 60,
+      "capacity_pcu_hr": 3500,
+      "geometry_points": [
+        [21.1080, 79.0650],
+        [21.1045, 79.0622],
+        [21.1010, 79.0592],
+        [21.0978, 79.0568],
+        [21.0950, 79.0550]
+      ]
+    },
+    {
+      "id": "seg_airport_khapri",
+      "name": "Wardha Road Highway (Airport Sq - Khapri Sq)",
+      "corridor": "Wardha Road",
+      "start_node": "node_airport_sq",
+      "end_node": "node_khapri",
+      "distance_km": 3.6,
+      "speed_limit_kmh": 70,
+      "capacity_pcu_hr": 4000,
+      "geometry_points": [
+        [21.0950, 79.0550],
+        [21.0880, 79.0512],
+        [21.0805, 79.0475],
+        [21.0722, 79.0435],
+        [21.0650, 79.0400]
+      ]
+    },
+    {
+      "id": "seg_khapri_mihan",
+      "name": "MIHAN Flyover Connector (Khapri Sq - MIHAN)",
+      "corridor": "Wardha Road",
+      "start_node": "node_khapri",
+      "end_node": "node_mihan",
+      "distance_km": 2.2,
+      "speed_limit_kmh": 60,
+      "capacity_pcu_hr": 3000,
+      "geometry_points": [
+        [21.0650, 79.0400],
+        [21.0610, 79.0372],
+        [21.0565, 79.0340],
+        [21.0528, 79.0315],
+        [21.0500, 79.0300]
+      ]
+    },
+    {
+      "id": "seg_sitabuldi_zero",
+      "name": "Civil Lines Connector (Sitabuldi - Zero Mile)",
+      "corridor": "Civil Lines",
+      "start_node": "node_sitabuldi",
+      "end_node": "node_zero_mile",
+      "distance_km": 0.8,
+      "speed_limit_kmh": 45,
+      "capacity_pcu_hr": 2400,
+      "geometry_points": [
+        [21.1458, 79.0882],
+        [21.1472, 79.0855],
+        [21.1488, 79.0835],
+        [21.1497, 79.0821]
+      ]
+    },
+    {
+      "id": "seg_zero_sadar",
+      "name": "Residency Road (Zero Mile - Sadar Sq)",
+      "corridor": "Kamptee Road",
+      "start_node": "node_zero_mile",
+      "end_node": "node_sadar",
+      "distance_km": 1.4,
+      "speed_limit_kmh": 50,
+      "capacity_pcu_hr": 2600,
+      "geometry_points": [
+        [21.1497, 79.0821],
+        [21.1530, 79.0828],
+        [21.1570, 79.0838],
+        [21.1610, 79.0845]
+      ]
+    },
+    {
+      "id": "seg_sadar_automotive",
+      "name": "Kamptee Road Flyover (Sadar - Automotive Sq)",
+      "corridor": "Kamptee Road",
+      "start_node": "node_sadar",
+      "end_node": "node_automotive",
+      "distance_km": 4.2,
+      "speed_limit_kmh": 60,
+      "capacity_pcu_hr": 3600,
+      "geometry_points": [
+        [21.1610, 79.0845],
+        [21.1685, 79.0910],
+        [21.1762, 79.0980],
+        [21.1840, 79.1050],
+        [21.1920, 79.1120]
+      ]
+    },
+    {
+      "id": "seg_sadar_mankapur",
+      "name": "Koradi Road (Sadar - Mankapur Sq)",
+      "corridor": "Koradi Road",
+      "start_node": "node_sadar",
+      "end_node": "node_mankapur",
+      "distance_km": 3.3,
+      "speed_limit_kmh": 55,
+      "capacity_pcu_hr": 2800,
+      "geometry_points": [
+        [21.1610, 79.0845],
+        [21.1680, 79.0812],
+        [21.1760, 79.0770],
+        [21.1830, 79.0742],
+        [21.1890, 79.0720]
+      ]
+    },
+    {
+      "id": "seg_sitabuldi_lawcollege",
+      "name": "Amravati Road (Sitabuldi - Law College Sq)",
+      "corridor": "Amravati Road",
+      "start_node": "node_sitabuldi",
+      "end_node": "node_law_college",
+      "distance_km": 2.6,
+      "speed_limit_kmh": 50,
+      "capacity_pcu_hr": 2800,
+      "geometry_points": [
+        [21.1458, 79.0882],
+        [21.1466, 79.0810],
+        [21.1472, 79.0735],
+        [21.1478, 79.0665],
+        [21.1480, 79.0610]
+      ]
+    },
+    {
+      "id": "seg_lawcollege_dharampeth",
+      "name": "West High Court Rd (Law College - Dharampeth)",
+      "corridor": "WHC Road",
+      "start_node": "node_law_college",
+      "end_node": "node_dharampeth",
+      "distance_km": 0.9,
+      "speed_limit_kmh": 40,
+      "capacity_pcu_hr": 2200,
+      "geometry_points": [
+        [21.1480, 79.0610],
+        [21.1458, 79.0613],
+        [21.1435, 79.0617],
+        [21.1415, 79.0620]
+      ]
+    },
+    {
+      "id": "seg_dharampeth_shankarnagar",
+      "name": "WHC Road (Dharampeth - Shankarnagar)",
+      "corridor": "WHC Road",
+      "start_node": "node_dharampeth",
+      "end_node": "node_shankarnagar",
+      "distance_km": 0.8,
+      "speed_limit_kmh": 45,
+      "capacity_pcu_hr": 2400,
+      "geometry_points": [
+        [21.1415, 79.0620],
+        [21.1402, 79.0640],
+        [21.1390, 79.0660],
+        [21.1380, 79.0680]
+      ]
+    },
+    {
+      "id": "seg_shankarnagar_ramdaspeth",
+      "name": "Central Bazaar Rd (Shankarnagar - Ramdaspeth)",
+      "corridor": "Ramdaspeth",
+      "start_node": "node_shankarnagar",
+      "end_node": "node_ramdaspeth",
+      "distance_km": 0.7,
+      "speed_limit_kmh": 40,
+      "capacity_pcu_hr": 2000,
+      "geometry_points": [
+        [21.1380, 79.0680],
+        [21.1370, 79.0700],
+        [21.1360, 79.0720],
+        [21.1350, 79.0740]
+      ]
+    },
+    {
+      "id": "seg_ramdaspeth_rahate",
+      "name": "Ramdaspeth Rd (Ramdaspeth - Rahate Colony)",
+      "corridor": "Ramdaspeth",
+      "start_node": "node_ramdaspeth",
+      "end_node": "node_rahate_colony",
+      "distance_km": 0.6,
+      "speed_limit_kmh": 45,
+      "capacity_pcu_hr": 2200,
+      "geometry_points": [
+        [21.1350, 79.0740],
+        [21.1332, 79.0755],
+        [21.1315, 79.0768],
+        [21.1300, 79.0780]
+      ]
+    },
+    {
+      "id": "seg_shankarnagar_itpark",
+      "name": "Subhash Nagar Rd (Shankarnagar - IT Park)",
+      "corridor": "IT Corridor",
+      "start_node": "node_shankarnagar",
+      "end_node": "node_it_park",
+      "distance_km": 2.2,
+      "speed_limit_kmh": 45,
+      "capacity_pcu_hr": 2500,
+      "geometry_points": [
+        [21.1380, 79.0680],
+        [21.1335, 79.0625],
+        [21.1285, 79.0570],
+        [21.1235, 79.0515]
+      ]
+    },
+    {
+      "id": "seg_itpark_chhatrapati",
+      "name": "Ring Road West (IT Park - Chhatrapati Sq)",
+      "corridor": "Ring Road",
+      "start_node": "node_it_park",
+      "end_node": "node_chhatrapati",
+      "distance_km": 1.9,
+      "speed_limit_kmh": 55,
+      "capacity_pcu_hr": 3000,
+      "geometry_points": [
+        [21.1235, 79.0515],
+        [21.1185, 79.0555],
+        [21.1130, 79.0600],
+        [21.1080, 79.0650]
+      ]
+    },
+    {
+      "id": "seg_itpark_hingna",
+      "name": "Hingna Road (IT Park - Hingna Naka)",
+      "corridor": "Hingna Road",
+      "start_node": "node_it_park",
+      "end_node": "node_hingna_naka",
+      "distance_km": 3.8,
+      "speed_limit_kmh": 50,
+      "capacity_pcu_hr": 2600,
+      "geometry_points": [
+        [21.1235, 79.0515],
+        [21.1205, 79.0380],
+        [21.1175, 79.0220],
+        [21.1150, 79.0050]
+      ]
+    },
+    {
+      "id": "seg_hingna_mihan",
+      "name": "Outer Bypass Expressway (Hingna Naka - MIHAN)",
+      "corridor": "Outer Ring Road",
+      "start_node": "node_hingna_naka",
+      "end_node": "node_mihan",
+      "distance_km": 7.5,
+      "speed_limit_kmh": 70,
+      "capacity_pcu_hr": 3800,
+      "geometry_points": [
+        [21.1150, 79.0050],
+        [21.0950, 79.0000],
+        [21.0750, 79.0060],
+        [21.0580, 79.0160],
+        [21.0500, 79.0300]
+      ]
+    },
+    {
+      "id": "seg_sitabuldi_centralave",
+      "name": "Central Avenue (Sitabuldi - Cotton Market Sq)",
+      "corridor": "Central Avenue",
+      "start_node": "node_sitabuldi",
+      "end_node": "node_central_ave",
+      "distance_km": 2.5,
+      "speed_limit_kmh": 45,
+      "capacity_pcu_hr": 2800,
+      "geometry_points": [
+        [21.1458, 79.0882],
+        [21.1465, 79.0970],
+        [21.1472, 79.1060],
+        [21.1480, 79.1150]
+      ]
+    },
+    {
+      "id": "seg_centralave_hbtown",
+      "name": "Central Avenue Flyover (Cotton Market Sq - HB Town)",
+      "corridor": "Central Avenue",
+      "start_node": "node_central_ave",
+      "end_node": "node_hb_town",
+      "distance_km": 3.2,
+      "speed_limit_kmh": 55,
+      "capacity_pcu_hr": 3200,
+      "geometry_points": [
+        [21.1480, 79.1150],
+        [21.1483, 79.1200],
+        [21.1487, 79.1260],
+        [21.1490, 79.1320]
+      ]
+    },
+    {
+      "id": "seg_rahate_medical",
+      "name": "Medical Rd (Rahate Colony - Medical Sq)",
+      "corridor": "Medical Corridor",
+      "start_node": "node_rahate_colony",
+      "end_node": "node_medical_sq",
+      "distance_km": 1.3,
+      "speed_limit_kmh": 45,
+      "capacity_pcu_hr": 2600,
+      "geometry_points": [
+        [21.1300, 79.0780],
+        [21.1292, 79.0825],
+        [21.1284, 79.0872],
+        [21.1275, 79.0920]
+      ]
+    },
+    {
+      "id": "seg_medical_chhatrapati",
+      "name": "Inner Ring Road (Medical Sq - Chhatrapati Sq)",
+      "corridor": "Inner Ring Road",
+      "start_node": "node_medical_sq",
+      "end_node": "node_chhatrapati",
+      "distance_km": 3.1,
+      "speed_limit_kmh": 50,
+      "capacity_pcu_hr": 2900,
+      "geometry_points": [
+        [21.1275, 79.0920],
+        [21.1210, 79.0840],
+        [21.1145, 79.0745],
+        [21.1080, 79.0650]
+      ]
+    },
+    {
+      "id": "seg_airportsq_terminal",
+      "name": "Airport Approach Road (Airport Sq - Terminal)",
+      "corridor": "Airport Road",
+      "start_node": "node_airport_sq",
+      "end_node": "node_airport_term",
+      "distance_km": 0.8,
+      "speed_limit_kmh": 40,
+      "capacity_pcu_hr": 1800,
+      "geometry_points": [
+        [21.0950, 79.0550],
+        [21.0938, 79.0515],
+        [21.0922, 79.0472]
+      ]
+    }
+  ]
+}
