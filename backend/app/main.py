@@ -5,7 +5,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 # Add app directory to path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+app_dir = os.path.dirname(os.path.abspath(__file__))
+backend_dir = os.path.dirname(app_dir)
+root_dir = os.path.dirname(backend_dir)
+for p in [root_dir, backend_dir, app_dir]:
+    if p not in sys.path:
+        sys.path.insert(0, p)
 
 from app.core.database import Base, engine
 from app.services.websocket_manager import ws_manager
