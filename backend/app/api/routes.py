@@ -106,16 +106,27 @@ def find_route(req: RouteFindRequest, db: Session = Depends(get_db)):
     if "error" in route_result:
         raise HTTPException(status_code=400, detail=route_result["error"])
         
-    # Log search history into database
-    rec = route_result.get("recommended_route", {})
-    history_entry = SearchHistory(
-        from_location=req.from_location,
-        to_location=req.to_location,
-        distance_km=rec.get("distance_km", 0.0),
-        eta_minutes=rec.get("eta_minutes", 0.0)
-    )
-    db.add(history_entry)
-    db.commit()
+    # Log search history into database (safely)
+    try:
+        rec = route_result.get("recommended_route", {})
+        history_entry = SearchHistory(
+            from_location=req.from_location,
+            to_location=req.to_location,
+            distance_km=rec.get("distance_km", 0.0),
+            eta_minutes=rec.get("eta_minutes", 0.0)
+        )
+        db.add(history_entry)
+        db.commit()
+    except Exception:
+        db.rollback()
+    
+    return {
+        "from_location": req.from_location,
+        "to_location": req.to_location,
+        "start_node_id": start_node,
+        "end_node_id": end_node,
+        **route_result
+    }
     
     return {
         "from_location": req.from_location,
