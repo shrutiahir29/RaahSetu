@@ -224,20 +224,24 @@ export const NagpurMap: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* Floating Active Route & Crowded Bottleneck Callout Banner */}
+      {/* Floating Active Route & Crowded Bottleneck Callout Banner (Positioned Bottom-Left to avoid obscuring map) */}
       {recRoute && (
-        <div className="absolute top-16 left-3 z-[15] bg-slate-950/95 backdrop-blur-xl border border-cyan-500/50 rounded-xl p-3 shadow-2xl max-w-md text-xs space-y-2 pointer-events-auto animate-fadeIn">
+        <div className="absolute bottom-4 left-4 z-[15] bg-slate-950/95 backdrop-blur-xl border border-cyan-500/50 rounded-xl p-3 shadow-2xl max-w-sm text-xs space-y-2 pointer-events-auto animate-fadeIn">
           <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
             <span className="font-extrabold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5 text-[11px]">
               <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
-              BEST ROUTE: {routeData.from_location} → {routeData.to_location}
+              BEST ROUTE (A*)
             </span>
             <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px] border border-emerald-500/30">
               Score: {recRoute.route_score}/100
             </span>
           </div>
 
-          <div className="flex items-center justify-between text-slate-200 text-[11px]">
+          <div className="text-[11px] font-bold text-white">
+            {routeData.from_location} → {routeData.to_location}
+          </div>
+
+          <div className="flex items-center justify-between text-slate-200 text-[11px] bg-slate-900/80 p-1.5 rounded border border-slate-800">
             <span>Distance: <strong className="text-white">{recRoute.distance_km} km</strong></span>
             <span>ETA: <strong className="text-cyan-300">{recRoute.eta_minutes} min</strong></span>
             <span>Congestion: <strong className="text-emerald-400">{recRoute.overall_congestion}</strong></span>
@@ -394,14 +398,8 @@ export const NagpurMap: React.FC<Props> = ({
           <Marker
             position={{ lat: startNodeInfo.lat, lng: startNodeInfo.lng }}
             icon={{ url: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png' }}
-            title={`START: ${routeData.from_location}`}
-          >
-            <InfoWindow position={{ lat: startNodeInfo.lat, lng: startNodeInfo.lng }}>
-              <div className="p-1 text-xs font-bold text-emerald-800">
-                🟢 START: {routeData.from_location}
-              </div>
-            </InfoWindow>
-          </Marker>
+            title={`🟢 START: ${routeData.from_location}`}
+          />
         )}
 
         {/* Destination Pin Marker (Red) */}
@@ -409,14 +407,8 @@ export const NagpurMap: React.FC<Props> = ({
           <Marker
             position={{ lat: endNodeInfo.lat, lng: endNodeInfo.lng }}
             icon={{ url: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png' }}
-            title={`DESTINATION: ${routeData.to_location}`}
-          >
-            <InfoWindow position={{ lat: endNodeInfo.lat, lng: endNodeInfo.lng }}>
-              <div className="p-1 text-xs font-bold text-rose-800">
-                🔴 END: {routeData.to_location}
-              </div>
-            </InfoWindow>
-          </Marker>
+            title={`🔴 DESTINATION: ${routeData.to_location}`}
+          />
         )}
 
         {/* Alternative Corridor Route Overlay (Dashed Purple Line) */}
