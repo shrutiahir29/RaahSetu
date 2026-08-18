@@ -1,9 +1,5 @@
 services:
   - type: web
     name: raahsetu-backend
-    env: python
-    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: python3 main.py || ./.venv/bin/python main.py
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.11.8
+    env: docker
+    dockerfilePath: ./Dockerfile
