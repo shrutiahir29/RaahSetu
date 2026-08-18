@@ -8,27 +8,67 @@ from app.services.websocket_manager import ws_manager
 
 router = APIRouter(prefix="/api/incidents", tags=["Incidents"])
 
-# Live in-memory active incidents
+# Live in-memory active incidents across Nagpur traffic network
 ACTIVE_INCIDENTS_STATE = {
-    "seg_rahate_medical": {
+    "seg_ajni_chhatrapati": {
         "id": 101,
+        "segment_id": "seg_ajni_chhatrapati",
+        "title": "Wardha Road Metro Pillar Maintenance",
+        "type": "Construction",
+        "severity": 3,
+        "description": "Right lane closed near Ajni Sq Flyover approach due to Metro pillar inspection.",
+        "is_active": True,
+        "created_at": "2026-08-18 08:30:00"
+    },
+    "seg_rahate_medical": {
+        "id": 102,
         "segment_id": "seg_rahate_medical",
-        "title": "Flyover Repair Work",
+        "title": "Flyover Expansion Joint Repair",
         "type": "Construction",
         "severity": 2,
         "description": "Lane width reduced on Medical Square approach flyover.",
         "is_active": True,
-        "created_at": "2026-08-17 14:30:00"
+        "created_at": "2026-08-18 09:15:00"
     },
     "seg_sitabuldi_centralave": {
-        "id": 102,
+        "id": 103,
         "segment_id": "seg_sitabuldi_centralave",
         "title": "Waterlogging near Cotton Market Underpass",
         "type": "Waterlogging",
         "severity": 2,
-        "description": "Accumulated rainwater slowing down eastbound traffic.",
+        "description": "Accumulated rainwater slowing down eastbound traffic flow.",
         "is_active": True,
-        "created_at": "2026-08-17 17:15:00"
+        "created_at": "2026-08-18 10:00:00"
+    },
+    "seg_sadar_automotive": {
+        "id": 104,
+        "segment_id": "seg_sadar_automotive",
+        "title": "Heavy Truck Breakdown on Kamptee Rd Flyover",
+        "type": "Vehicle Breakdown",
+        "severity": 3,
+        "description": "Stalled container truck blocking northbound lane near Gurudwara Sq.",
+        "is_active": True,
+        "created_at": "2026-08-18 11:20:00"
+    },
+    "seg_lawcollege_dharampeth": {
+        "id": 105,
+        "segment_id": "seg_lawcollege_dharampeth",
+        "title": "VIP Convoy Movement & Signal Hold",
+        "type": "Event",
+        "severity": 2,
+        "description": "Intermittent traffic holds near Law College Square for official movement.",
+        "is_active": True,
+        "created_at": "2026-08-18 12:00:00"
+    },
+    "seg_shankarnagar_itpark": {
+        "id": 106,
+        "segment_id": "seg_shankarnagar_itpark",
+        "title": "Drainage Pipeline Maintenance",
+        "type": "Construction",
+        "severity": 1,
+        "description": "Minor speed restriction near Subhash Nagar T-Junction.",
+        "is_active": True,
+        "created_at": "2026-08-18 13:45:00"
     }
 }
 
