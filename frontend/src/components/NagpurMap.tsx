@@ -632,27 +632,51 @@ export const NagpurMap: React.FC<Props> = ({
       </GoogleMap>
 
       {/* 4. Floating Map Legend Overlay */}
-      <div className="absolute bottom-4 right-4 z-[10] bg-slate-900/95 backdrop-blur-md p-3 rounded-xl border border-slate-800 text-xs text-slate-300 shadow-2xl space-y-2 pointer-events-auto">
-        <div className="font-semibold text-white border-b border-slate-800 pb-1 text-[11px] flex items-center justify-between">
-          <span>RAAHSETU Traffic Overlay</span>
-          <span className="text-[9px] text-cyan-400 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">Google Base Map</span>
+      <div className="absolute bottom-4 right-4 z-[10] bg-slate-900/95 backdrop-blur-md p-3.5 rounded-2xl border border-slate-800 text-xs text-slate-300 shadow-2xl space-y-2.5 pointer-events-auto max-w-xs">
+        <div className="font-bold text-white border-b border-slate-800 pb-1.5 text-[11px] flex items-center justify-between">
+          <span>Map Index & Legend</span>
+          <span className="text-[9px] text-cyan-400 bg-slate-950 px-2 py-0.5 rounded-full border border-cyan-500/30 font-medium">RAAHSETU GIS</span>
         </div>
-        <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-[10px]">
-          <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-6 rounded bg-emerald-500 inline-block" />
-            <span>Underutilized (&lt;40%)</span>
+
+        {/* Route Types Legend */}
+        <div className="space-y-1.5">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Calculated Routes</span>
+          <div className="space-y-1 text-[10px]">
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-5 rounded-full bg-cyan-400 inline-block shadow-sm shadow-cyan-400/50" />
+              <span className="font-semibold text-cyan-300">Recommended Best Route (A*)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-5 rounded-full bg-purple-500 inline-block shadow-sm shadow-purple-500/50" />
+              <span className="font-semibold text-purple-300">Alternative Bypass Route</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-5 rounded-full bg-sky-400 inline-block shadow-sm shadow-sky-400/50" />
+              <span className="font-semibold text-sky-300">Traffic Redistribution Arrow</span>
+            </div>
           </div>
-          <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-6 rounded bg-amber-500 inline-block" />
-            <span>Balanced (40-75%)</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-6 rounded bg-orange-500 inline-block" />
-            <span>High (75-90%)</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="h-2.5 w-6 rounded bg-rose-500 inline-block" />
-            <span>Overloaded (&gt;90%)</span>
+        </div>
+
+        {/* Road Congestion Levels Legend */}
+        <div className="space-y-1.5 border-t border-slate-800 pt-1.5">
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Road Congestion Levels</span>
+          <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-[10px]">
+            <div className="flex items-center gap-1.5">
+              <span className="h-2 w-4 rounded bg-emerald-500 inline-block" />
+              <span>Underutilized (&lt;50%)</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="h-2 w-4 rounded bg-amber-500 inline-block" />
+              <span>Balanced (50-75%)</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="h-2 w-4 rounded bg-orange-500 inline-block" />
+              <span>High (75-90%)</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="h-2 w-4 rounded bg-rose-500 inline-block" />
+              <span>Overloaded (&gt;90%)</span>
+            </div>
           </div>
         </div>
       </div>
